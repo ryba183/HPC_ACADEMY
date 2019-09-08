@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cmath>
+#include <fstream>
 
 
 
@@ -21,18 +22,16 @@ int main(void)
 	std::cin>>T;
 	std::cout<<"Imput vale of dt= "<<std::endl;
 	std::cin>>dt;
+	std::ofstream data;
 	
 	y = y0;
 	t == 0;
 	
+	data.open("Ode.txt");
 	while (t<T)
 	{
 		y = y +dt*dy(y);
 		t += dt;
-		std::cout<<y<<std::endl;
+		data <<t<<"\t"<<y<<std::endl;
 	}
-	
-	
-	
-	return 0;
 }
